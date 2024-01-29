@@ -1,6 +1,9 @@
 //Requirements
 const inquirer = require("inquirer");
-const CheckText = require("./lib/text.js")
+const CheckText = require("./lib/text.js");
+const Color = require("./lib/color.js");
+const Shape = require("./lib/shape.js");
+
 
 class CLI {
     constructor(){
@@ -11,7 +14,8 @@ class CLI {
     }
 
     run(){
-     return inquirer.prompt([
+     return inquirer
+     .prompt([
         {
             type: "input",
             name: "text",
@@ -37,6 +41,24 @@ class CLI {
             message:"Please enter a color keyword or a hexadecimal number for the color of the shape"
         }
         ])
+
+        .then(({text, textColor, shape, shapeColor}) => {
+            const userText = new CheckText(text).textLength();
+            const userTextColor = new Color(textColor).checkHexCode();
+            const userShape = new Shape(shape).checkShape();
+            const userShapeColor = new Color(shapeColor).checkHexCode();
+
+            console.log(userText);
+           
+            this.text = userText;
+            this.textColor = userTextColor;
+            this.shape = userShape;
+            this.shapeColor = userShapeColor;
+        })
+
+        // .then(() => {
+
+        // })
     }  
     
 }
@@ -44,10 +66,7 @@ class CLI {
 const init = () =>{
     const cli = new CLI;
     cli.run()
-    .then((text) => {
-        const userText = new CheckText(text).textLength();
-        console.log(userText);
-    })
+    
 }
 
 

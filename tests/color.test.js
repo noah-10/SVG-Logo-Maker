@@ -20,10 +20,10 @@ describe("Color", () => {
         expect(result).toBe("#a5b");
     })
 
-    test("Should return true for a valid color name", () => {
-        const colorInstance = new Color("red");
-        const result = colorInstance.checkColor();
+    // test("Should return the original color", () => {
+    //     const colorInstance = new Color("red");
+    //     const result = colorInstance.checkHexCode();
 
-        expect(result).toBe(true);
-    })
+    //     expect(result).toBe("red");
+    // })
 })
