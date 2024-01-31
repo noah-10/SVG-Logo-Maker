@@ -16,9 +16,9 @@ describe("Shape", () => {
     })
 
     test("Should return the render for square", () => {
-        const newSquare = new Shape("square");
+        const newSquare = new Shape("square", "#fff");
         const newInstance = newSquare.checkShape();
 
-        expect(newInstance).toBe("<rect x=50 y=50 width=100 height=100></rect>");
+        expect(newInstance).toBe("<rect x=50 y=50 width=100 height=100 fill=#fff></rect>");
     })
 })
