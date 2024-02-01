@@ -28,6 +28,4 @@
 
 ## Demo Video
 
-<video width="320" height="240" controls>
-  <source src="./assets/videos/SVG-Logo-Maker-Demo.mp4" type="video/mp4">
-</video>
+- Watch the demo with this [link](https://watch.screencastify.com/v/ZleqDSyApmUrXAo4fCxg).
