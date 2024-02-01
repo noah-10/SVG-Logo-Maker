@@ -1,6 +1,6 @@
 //Requirements
 const inquirer = require("inquirer");
-const CheckText = require("./lib/text.js");
+const Text = require("./lib/text.js");
 const Color = require("./lib/color.js");
 const Shape = require("./lib/shape.js");
 const { writeFile } = require('fs/promises');
@@ -48,17 +48,8 @@ class CLI {
             const checkedTextColor = new Color(textColor).checkHexCode();
             const checkedShapeColor = new Color(shapeColor).checkHexCode();
 
-            const userText = new CheckText(text, checkedTextColor).textLength();
+            const userText = new Text(text, checkedTextColor, shape).textLength();
             const userShape = new Shape(shape, checkedShapeColor).checkShape();
-
-            // const svgData = new Svg(userText, userShape).createSvg();
-            // const filePath = join(__dirname, 'examples', 'logo.svg');
-
-            // writeFile(filePath, svgData, (err) => {
-            //     if(err){
-            //         console.error('Error creating file', err);
-            //     }
-            // })
 
             writeFile(
                 join(__dirname, 'examples', 'logo.svg'),

@@ -6,13 +6,13 @@ describe("Square", () =>{
         const testSquare = new Square("square", "#fff");
         const newInstance = testSquare.render();
 
-        expect(newInstance).toBe("<rect x=50 y=50 width=100 height=100 fill=#fff></rect>");
+        expect(newInstance).toBe("<rect x='50' y='0' width='200' height='200' fill='#fff'></rect>");
     })
 
-    // test("Should return nothing", () => {
-    //     const testCircle = new Square("circle");
-    //     const newInstance = testCircle.render();
+    test("Should return nothing", () => {
+        const testCircle = new Square("circle", "#fff");
+        const newInstance = testCircle.render();
 
-    //     expect(newInstance).toBe()
-    // })
+        expect(newInstance).toBe()
+    })
 })
