@@ -8,15 +8,10 @@ const {join} = require('path');
 const Svg = require('./lib/document.js');
 
 class CLI {
-    constructor(){
-        this.text = ""
-        this.textColor = ""
-        this.shape = "";
-        this.shapeColor = "";
-    }
 
     run(){
      return inquirer
+     // Prompts the questions
      .prompt([
         {
             type: "input",
@@ -45,22 +40,27 @@ class CLI {
         ])
 
         .then(({text, textColor, shape, shapeColor}) => {
+            // Checks each color to make sure they follow the restrictions
             const checkedTextColor = new Color(textColor).checkHexCode();
             const checkedShapeColor = new Color(shapeColor).checkHexCode();
 
+            //Gets the code for the text that includes the fill color and selects the layout of the text based on which shape is selected
             const userText = new Text(text, checkedTextColor, shape).textLength();
             const userShape = new Shape(shape, checkedShapeColor).checkShape();
 
+            // Creates the file
             writeFile(
                 join(__dirname, 'examples', 'logo.svg'),
                 new Svg(userText, userShape).createSvg()
               );
         })
 
+        // Logs if svg is generated
         .then(() => {
             console.log("Created SVG Logo");
         })
 
+        // If error, it will be displayed in the console
         .catch((err) => {
             console.log(err);
             console.log("Something went wrong")
@@ -69,13 +69,14 @@ class CLI {
     
 }
 
+//Initiates the prompts when called
 const init = () =>{
     const cli = new CLI;
     cli.run()
     
 }
 
-
+//Calls when terminal is initiated
 init();
 
 module.exports = CLI;

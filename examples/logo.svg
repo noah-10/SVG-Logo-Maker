@@ -1,4 +1,4 @@
 <svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='300' height='200'>
-        <circle cx='150' cy='100' r='100' fill='#352F44'></circle>
-        <text x='150' y='100' font-size='80' text-anchor='middle' dominant-baseline='middle' fill='#E95793'>mls</text>
+        <circle cx='150' cy='100' r='100' fill='#fff'></circle>
+        <text x='150' y='100' font-size='80' text-anchor='middle' dominant-baseline='middle' fill='#fff'>mls</text>
 </svg>
