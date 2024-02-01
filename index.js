@@ -41,8 +41,8 @@ class CLI {
 
         .then(({text, textColor, shape, shapeColor}) => {
             // Checks each color to make sure they follow the restrictions
-            const checkedTextColor = new Color(textColor).checkHexCode();
-            const checkedShapeColor = new Color(shapeColor).checkHexCode();
+            const checkedTextColor = new Color(textColor).checkColor();
+            const checkedShapeColor = new Color(shapeColor).checkColor();
 
             //Gets the code for the text that includes the fill color and selects the layout of the text based on which shape is selected
             const userText = new Text(text, checkedTextColor, shape).textLength();
