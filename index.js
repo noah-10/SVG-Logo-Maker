@@ -16,26 +16,26 @@ class CLI {
         {
             type: "input",
             name: "text",
-            message: "Enter up to three characters for your text"
+            message: "Enter up to three characters for your text."
         },
         
         {
             type: "input",
             name: "textColor",
-            message: "Please enter a color keyword or a hexadecimal number for the color of the text"
+            message: "Please enter a color keyword or a hexadecimal number for the color of the text."
         },
 
         {
             type: "list",
             name: "shape",
-            message: "Please select a shape",
+            message: "Please select a shape.",
             choices: ["circle", "triangle", "square"]
         },
 
         {
             type: "input",
             name: "shapeColor",
-            message:"Please enter a color keyword or a hexadecimal number for the color of the shape"
+            message:"Please enter a color keyword or a hexadecimal number for the color of the shape."
         }
         ])
 
@@ -52,12 +52,17 @@ class CLI {
             writeFile(
                 join(__dirname, 'examples', 'logo.svg'),
                 new Svg(userText, userShape).createSvg()
-              );
+            );
+
+            writeFile(
+                join(__dirname, 'examples', 'logo.html'),
+                new Svg(userText, userShape).createSvg()
+            );
         })
 
         // Logs if svg is generated
         .then(() => {
-            console.log("Created SVG Logo");
+            console.log("Generated logo.svg");
         })
 
         // If error, it will be displayed in the console
